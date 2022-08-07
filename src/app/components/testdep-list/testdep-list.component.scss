@@ -1,0 +1,85 @@
+.make-greenyellow {
+    background-color: greenyellow
+}
+
+.make-gold {
+    background-color: gold
+}
+
+.make-orange {
+    background-color: orange
+}
+
+.make-orangered {
+    background-color: orangered
+}
+
+.delayhighlight{
+    color: rgb(239, 13, 13);
+    font-weight: bold;
+}
+.nodelayhighlight{
+    color: rgba(90, 212, 82, 0.785);
+}
+
+table {
+    width: 100%;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  }
+
+  .example-element-time {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: normal;
+  }
+  
+  .example-element-todirection {
+    font-weight: normal;
+    font-size: 30px;
+    line-height: normal;
+  }
+  
+  .example-element-arppth {
+    padding: 16px;
+  }
+
+  .example-element-dpppth {
+    padding: 16px;
+  }
+
+  .example-element-arppth-attribution {
+    opacity: 0.5;
+  }
+
+  .example-element-dpppth-attribution {
+    opacity: 0.5;
+  }

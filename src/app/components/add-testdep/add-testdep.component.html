@@ -1,0 +1,44 @@
+<p>add-testdep works!</p>
+<div class="container wrapper wrapper2">
+    <div class="row">
+        <!-- Form -->
+        <div class="col-md-12">
+            <h3>Add Issue</h3>
+            <form [formGroup]="issueForm" (ngSubmit)="submitForm()" novalidate>
+                <div class="form-group">
+                    <label>Time</label>
+                    <input type="text" formControlName="time" class="form-control" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>Delay (in min)</label>
+                    <input type="text" formControlName="delay" class="form-control" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>To Direction</label>
+                    <textarea class="form-control" formControlName="todirection" rows="3" maxlength="50"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Traintype</label>
+                    <input type="text" formControlName="traintype" class="form-control" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>Platform</label>
+                    <input type="text" formControlName="platform" class="form-control" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>Day</label>
+                    <input type="text" formControlName="day" class="form-control" maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label>Arival Planed Path</label>
+                    <textarea class="form-control" formControlName="arppth" rows="3" maxlength="50"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Departure  Planed Path</label>
+                    <textarea class="form-control" formControlName="dpppth" rows="3" maxlength="50"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

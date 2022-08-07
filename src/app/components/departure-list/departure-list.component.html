@@ -1,1 +1,30 @@
 <p>departure-list works!</p>
+<div class="container wrapper">
+    <div class="row">
+        <!-- Issue table -->
+        <div class="col-md-12">
+            <div class="inner">
+                <h3>My Departures</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Issue Name</th>
+                            <th scope="col">Issue Details</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let departure of DeparturesList">
+                            <th scope="row">{{departure.id}}</th>
+                            <td>{{departure.issue_name}}</td>
+                            <td>{{departure.issue_message}}</td>
+                            <td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

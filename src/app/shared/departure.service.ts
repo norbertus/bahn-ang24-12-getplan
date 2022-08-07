@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Bug } from './bug';
+import { Departuredataset } from './departuredataset';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class BugService {
+export class DepartureService {
   // Base url
   baseurl = 'http://localhost:3000';
   constructor(private http: HttpClient) {}
@@ -16,16 +16,26 @@ export class BugService {
       'Content-Type': 'application/json',
     }),
   };
-  // GET
-  GetDeparture(id): Observable<Bug> {
+  // POST
+  CreateDeparture(data): Observable<Departuredataset> {
     return this.http
-      .get<Bug>(this.baseurl + '/bugtracking/' + id)
+      .post<Departuredataset>(
+        this.baseurl + '/testdepartures/',
+        JSON.stringify(data),
+        this.httpOptions
+      )
       .pipe(retry(1), catchError(this.errorHandl));
   }
   // GET
-  GetDepartures(): Observable<Bug> {
+  GetDeparture(id): Observable<Departuredataset> {
     return this.http
-      .get<Bug>(this.baseurl + '/bugtracking/')
+      .get<Departuredataset>(this.baseurl + '/testdepartures/' + id)
+      .pipe(retry(1), catchError(this.errorHandl));
+  }
+  // GET
+  GetDepartures(): Observable<Departuredataset> {
+    return this.http
+      .get<Departuredataset>(this.baseurl + '/testdepartures/')
       .pipe(retry(1), catchError(this.errorHandl));
   }
   // Error handling

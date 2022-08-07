@@ -1,0 +1,102 @@
+<p>timetableconst-list works!</p>
+
+<mat-tab-group>
+    <mat-tab label="Abfahrt"> 
+      Abfahrt 
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSourceDeparture">
+      
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+      
+          <!-- ID Column -->
+          <ng-container matColumnDef="planedtime">
+            <mat-header-cell *matHeaderCellDef> Uhrzeit (Plan) </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.planedtime}} </mat-cell>
+          </ng-container>
+      
+          <!-- tl.c Column -->
+          <ng-container matColumnDef="delayedtime">
+            <mat-header-cell *matHeaderCellDef> (Verspaetung) </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.delayedtime}} </mat-cell>
+          </ng-container>
+      
+          <!-- tl.f Column -->
+          <ng-container matColumnDef="todirection">
+            <mat-header-cell *matHeaderCellDef> In Richtung </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.todirection}} </mat-cell>
+          </ng-container>
+      
+          <!-- tl.f Column -->
+          <ng-container matColumnDef="traintype">
+            <mat-header-cell *matHeaderCellDef> Zug </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.traintype}} </mat-cell>
+          </ng-container>
+      
+          <!-- tl.f Column -->
+          <ng-container matColumnDef="platform">
+            <mat-header-cell *matHeaderCellDef> Bahnsteig </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.platform}} </mat-cell>
+          </ng-container>
+      
+          <!-- tl.f Column -->
+          <ng-container matColumnDef="planedday">
+            <mat-header-cell *matHeaderCellDef> Tag </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.planedday}} </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </mat-tab>
+    <mat-tab label="Ankunft"> 
+      Ankunft 
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSourceArrival">
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+      
+          <!-- ID Column -->
+          <ng-container matColumnDef="planedtime">
+            <mat-header-cell *matHeaderCellDef> Uhrzeit (Plan) </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.planedtime}} </mat-cell>
+          </ng-container>
+      
+          <!-- tl.c Column -->
+          <ng-container matColumnDef="delayedtime">
+            <mat-header-cell *matHeaderCellDef> (Verspaetung) </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.delayedtime}} </mat-cell>
+          </ng-container>
+      
+          <!-- tl.f Column -->
+          <ng-container matColumnDef="todirection">
+            <mat-header-cell *matHeaderCellDef> Aus Richtung </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.fromdirection}} </mat-cell>
+          </ng-container>
+      
+          <!-- tl.f Column -->
+          <ng-container matColumnDef="traintype">
+            <mat-header-cell *matHeaderCellDef> Zug </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.traintype}} </mat-cell>
+          </ng-container>
+      
+          <!-- tl.f Column -->
+          <ng-container matColumnDef="platform">
+            <mat-header-cell *matHeaderCellDef> Bahnsteig </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.platform}} </mat-cell>
+          </ng-container>
+      
+          <!-- tl.f Column -->
+          <ng-container matColumnDef="planedday">
+            <mat-header-cell *matHeaderCellDef> Tag </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.planedday}} </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  

@@ -10,5 +10,134 @@
       "issue_message": "Issue tracking is awesome because of collaboration",
       "id": 2
     }
+  ],
+  "testdepartures": [
+    {
+      "id": 1,
+      "time": "16:32",
+      "delay": "1",
+      "todirection": "Berlin Ostbahnhof"
+    },
+    {
+      "id": 2,
+      "time": "16:34",
+      "delay": "0",
+      "todirection": "Frankfurt (Oder)"
+    },
+    {
+      "time": "16:46",
+      "delay": "5",
+      "todirection": "Bonn Hbf",
+      "id": 6
+    },
+    {
+      "time": "17:00",
+      "delay": "8",
+      "todirection": "Rostock Hbf",
+      "id": 7
+    },
+    {
+      "time": "17:00",
+      "delay": "5",
+      "todirection": "Braunschweig",
+      "id": 8
+    },
+    {
+      "time": "18:03",
+      "delay": "6",
+      "todirection": "Potsdam Hbf.",
+      "id": 9
+    },
+    {
+      "time": "18:00",
+      "delay": "0",
+      "todirection": "Erfurt",
+      "id": 10
+    },
+    {
+      "time": "18:02",
+      "delay": "0",
+      "todirection": "Brandenburg",
+      "traintype": "RE",
+      "platform": "4",
+      "day": "24.07.2022",
+      "id": 11
+    },
+    {
+      "time": "18:09",
+      "delay": "8",
+      "todirection": "Potsdam",
+      "traintype": "ICE",
+      "platform": "1",
+      "day": "24.07.2022",
+      "id": 12
+    },
+    {
+      "time": "19:00",
+      "delay": "9",
+      "todirection": "Frankfurt(Oder)",
+      "traintype": "RE",
+      "platform": "14",
+      "day": "30.07.2022",
+      "arppth": "\"Magdeburg Hbf|Magdeburg-Neustadt|Burg(Magdeburg)|",
+      "dpppth": "Berlin Friedrichstra&#223;e|Berlin Alexanderplatz|",
+      "id": 13
+    },
+    {
+      "time": "19:05",
+      "delay": "0",
+      "todirection": "Holthusen",
+      "traintype": "ICE",
+      "platform": "11",
+      "day": "30.07.2022",
+      "arppth": "Berlin Ostkreuz|Berlin Alexanderplatz|Berlin Fried",
+      "dpppth": "Berlin Zoologischer Garten|Berlin-Spandau|Falkense",
+      "id": 14
+    },
+    {
+      "time": "19:09",
+      "delay": "0",
+      "todirection": "Berlin Ostkreuz",
+      "traintype": "RE",
+      "platform": "12",
+      "day": "30.07.2022",
+      "arppth": "Brandenburg Hbf|G&#246;tz|Gro&#223; Kreutz|Werder(",
+      "dpppth": "Berlin Friedrichstra&#223;e|Berlin Alexanderplatz|",
+      "id": 15
+    },
+    {
+      "time": "19:50",
+      "delay": "0",
+      "todirection": "Hamburg Hbf.",
+      "traintype": "RE",
+      "platform": "12",
+      "day": "31.07.2022",
+      "arppth": "Bonn|Essen",
+      "dpppth": "Ostkreuz",
+      "id": 16
+    },
+    {
+      "time": "20:01",
+      "delay": "10",
+      "todirection": "Nürnberg Hbf.",
+      "traintype": "ICE",
+      "platform": "10",
+      "day": "02.08.2022",
+      "arppth": "Hamburg-Altona|",
+      "dpppth": "München Hbf.",
+      "id": 17
+    },
+    {
+      "time": "20:02",
+      "delay": "10",
+      "todirection": "Erfurt Hbf.",
+      "traintype": "ICE",
+      "platform": "10",
+      "day": "02.08.2022",
+      "arppth": "Hamburg-Altona|",
+      "dpppth": "München Hbf.",
+      "id": 17
+    }
+
   ]
 }

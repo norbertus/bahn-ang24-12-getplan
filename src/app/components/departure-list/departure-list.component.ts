@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DepartureService } from '../../shared/departure.service';
 
 @Component({
   selector: 'app-departure-list',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./departure-list.component.scss']
 })
 export class DepartureListComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+   DeparturesList: any = [];
+  
+    ngOnInit() {
+      this.loadDepartures();
+    }
+    constructor(
+      public departureService: DepartureService
+    ){ }
+     // Issues list
+     loadDepartures() {
+      return this.departureService.GetDepartures().subscribe((data: {}) => {
+        this.DeparturesList = data;
+      })
+    }
 }
+
