@@ -1,74 +1,112 @@
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <a aria-label="Bahn App" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Bahn Reise">
-    <svg id="bahn-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-      <rect width="24" height="24" fill="none"/>
-      <path d="M8 31V12q0-2.05.95-3.575.95-1.525 2.925-2.5 1.975-.975 5-1.45T24 4q4.3 0 7.325.45 3.025.45 4.95 1.425Q38.2 6.85 39.1 8.35q.9 1.5.9 3.65v19q0 2.95-2.025 4.975Q35.95 38 33 38l3 3v1h-3.5l-4-4h-9l-4 4H12v-1l3-3q-2.95 0-4.975-2.025Q8 33.95 8 31ZM24 7q-6 0-8.65.775-2.65.775-3.8 2.225H36.6q-.9-1.35-3.825-2.175Q29.85 7 24 7ZM11 20.75h11.7V13H11Zm22 3H11h26-4Zm-7.3-3H37V13H25.7Zm-8.95 11.5q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8T14 29.5q0 1.15.8 1.95t1.95.8Zm14.5 0q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8t-.8 1.95q0 1.15.8 1.95t1.95.8Zm-16.25 3h18q1.7 0 2.85-1.25Q37 32.75 37 31v-7.25H11V31q0 1.75 1.15 3T15 35.25ZM24 10H36.6 11.55 24" fill="#fff"/>
-    </svg>
-  </a>  
-  
-  <span><h2>Bahn Reise</h2></span>
-    <div class="spacer"></div>
-    <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
-      <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-        <rect width="400" height="400" fill="none"/>
-        <path d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23" fill="#fff"/>
-      </svg>
-    </a>
-    <a aria-label="Angular on YouTube" target="_blank" rel="noopener" href="https://youtube.com/angular" title="YouTube">
-      <svg id="youtube-logo" height="24" width="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
-        <path d="M0 0h24v24H0V0z" fill="none"/>
-        <path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/>
-      </svg>
-    </a>
-</div>
 
-<div class="content" role="main">
+<h1>Reiseauskunft</h1>
+
+<h2>Berlin Hbf</h2>
+<router-outlet></router-outlet>
+
+<mat-tab-group>
+  <mat-tab label="Abfahrt"> 
+    Abfahrt 
+    <div class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSourceDeparture">
+    
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- ID Column -->
+        <ng-container matColumnDef="planedtime">
+          <mat-header-cell *matHeaderCellDef> Uhrzeit (Plan) </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.planedtime}} </mat-cell>
+        </ng-container>
+    
+        <!-- tl.c Column -->
+        <ng-container matColumnDef="delayedtime">
+          <mat-header-cell *matHeaderCellDef> (Verspaetung) </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.delayedtime}} </mat-cell>
+        </ng-container>
+    
+        <!-- tl.f Column -->
+        <ng-container matColumnDef="todirection">
+          <mat-header-cell *matHeaderCellDef> In Richtung </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.todirection}} </mat-cell>
+        </ng-container>
+    
+        <!-- tl.f Column -->
+        <ng-container matColumnDef="traintype">
+          <mat-header-cell *matHeaderCellDef> Zug </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.traintype}} </mat-cell>
+        </ng-container>
+    
+        <!-- tl.f Column -->
+        <ng-container matColumnDef="platform">
+          <mat-header-cell *matHeaderCellDef> Bahnsteig </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.platform}} </mat-cell>
+        </ng-container>
+    
+        <!-- tl.f Column -->
+        <ng-container matColumnDef="planedday">
+          <mat-header-cell *matHeaderCellDef> Tag </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.planedday}} </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </mat-tab>
+  <mat-tab label="Ankunft"> 
+    Ankunft 
+    <div class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="dataSourceArrival">
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+    
+        <!-- ID Column -->
+        <ng-container matColumnDef="planedtime">
+          <mat-header-cell *matHeaderCellDef> Uhrzeit (Plan) </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.planedtime}} </mat-cell>
+        </ng-container>
+    
+        <!-- tl.c Column -->
+        <ng-container matColumnDef="delayedtime">
+          <mat-header-cell *matHeaderCellDef> (Verspaetung) </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.delayedtime}} </mat-cell>
+        </ng-container>
+    
+        <!-- tl.f Column -->
+        <ng-container matColumnDef="todirection">
+          <mat-header-cell *matHeaderCellDef> Aus Richtung </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.fromdirection}} </mat-cell>
+        </ng-container>
+    
+        <!-- tl.f Column -->
+        <ng-container matColumnDef="traintype">
+          <mat-header-cell *matHeaderCellDef> Zug </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.traintype}} </mat-cell>
+        </ng-container>
+    
+        <!-- tl.f Column -->
+        <ng-container matColumnDef="platform">
+          <mat-header-cell *matHeaderCellDef> Bahnsteig </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.platform}} </mat-cell>
+        </ng-container>
+    
+        <!-- tl.f Column -->
+        <ng-container matColumnDef="planedday">
+          <mat-header-cell *matHeaderCellDef> Tag </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.planedday}} </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </mat-tab>
+</mat-tab-group>
 
 
-  <!-- Resources -->
-  <h2>Top Bahnhöfe</h2>
-  <p>Einige der größten Bahnhöfe Deutschlands direkt erreichbar:</p>
 
-  <div class="card-container">
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/tutorial">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M8 31V12q0-2.05.95-3.575.95-1.525 2.925-2.5 1.975-.975 5-1.45T24 4q4.3 0 7.325.45 3.025.45 4.95 1.425Q38.2 6.85 39.1 8.35q.9 1.5.9 3.65v19q0 2.95-2.025 4.975Q35.95 38 33 38l3 3v1h-3.5l-4-4h-9l-4 4H12v-1l3-3q-2.95 0-4.975-2.025Q8 33.95 8 31ZM24 7q-6 0-8.65.775-2.65.775-3.8 2.225H36.6q-.9-1.35-3.825-2.175Q29.85 7 24 7ZM11 20.75h11.7V13H11Zm22 3H11h26-4Zm-7.3-3H37V13H25.7Zm-8.95 11.5q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8T14 29.5q0 1.15.8 1.95t1.95.8Zm14.5 0q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8t-.8 1.95q0 1.15.8 1.95t1.95.8Zm-16.25 3h18q1.7 0 2.85-1.25Q37 32.75 37 31v-7.25H11V31q0 1.75 1.15 3T15 35.25ZM24 10H36.6 11.55 24"/></svg>
-      <span>Aachen Hbf</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/cli">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M8 31V12q0-2.05.95-3.575.95-1.525 2.925-2.5 1.975-.975 5-1.45T24 4q4.3 0 7.325.45 3.025.45 4.95 1.425Q38.2 6.85 39.1 8.35q.9 1.5.9 3.65v19q0 2.95-2.025 4.975Q35.95 38 33 38l3 3v1h-3.5l-4-4h-9l-4 4H12v-1l3-3q-2.95 0-4.975-2.025Q8 33.95 8 31ZM24 7q-6 0-8.65.775-2.65.775-3.8 2.225H36.6q-.9-1.35-3.825-2.175Q29.85 7 24 7ZM11 20.75h11.7V13H11Zm22 3H11h26-4Zm-7.3-3H37V13H25.7Zm-8.95 11.5q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8T14 29.5q0 1.15.8 1.95t1.95.8Zm14.5 0q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8t-.8 1.95q0 1.15.8 1.95t1.95.8Zm-16.25 3h18q1.7 0 2.85-1.25Q37 32.75 37 31v-7.25H11V31q0 1.75 1.15 3T15 35.25ZM24 10H36.6 11.55 24"/></svg>
-      <span>Berlin Hbf</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://material.angular.io">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M8 31V12q0-2.05.95-3.575.95-1.525 2.925-2.5 1.975-.975 5-1.45T24 4q4.3 0 7.325.45 3.025.45 4.95 1.425Q38.2 6.85 39.1 8.35q.9 1.5.9 3.65v19q0 2.95-2.025 4.975Q35.95 38 33 38l3 3v1h-3.5l-4-4h-9l-4 4H12v-1l3-3q-2.95 0-4.975-2.025Q8 33.95 8 31ZM24 7q-6 0-8.65.775-2.65.775-3.8 2.225H36.6q-.9-1.35-3.825-2.175Q29.85 7 24 7ZM11 20.75h11.7V13H11Zm22 3H11h26-4Zm-7.3-3H37V13H25.7Zm-8.95 11.5q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8T14 29.5q0 1.15.8 1.95t1.95.8Zm14.5 0q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8t-.8 1.95q0 1.15.8 1.95t1.95.8Zm-16.25 3h18q1.7 0 2.85-1.25Q37 32.75 37 31v-7.25H11V31q0 1.75 1.15 3T15 35.25ZM24 10H36.6 11.55 24"/></svg>
-      <span>Hamurg Hbf</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://blog.angular.io/">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M8 31V12q0-2.05.95-3.575.95-1.525 2.925-2.5 1.975-.975 5-1.45T24 4q4.3 0 7.325.45 3.025.45 4.95 1.425Q38.2 6.85 39.1 8.35q.9 1.5.9 3.65v19q0 2.95-2.025 4.975Q35.95 38 33 38l3 3v1h-3.5l-4-4h-9l-4 4H12v-1l3-3q-2.95 0-4.975-2.025Q8 33.95 8 31ZM24 7q-6 0-8.65.775-2.65.775-3.8 2.225H36.6q-.9-1.35-3.825-2.175Q29.85 7 24 7ZM11 20.75h11.7V13H11Zm22 3H11h26-4Zm-7.3-3H37V13H25.7Zm-8.95 11.5q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8T14 29.5q0 1.15.8 1.95t1.95.8Zm14.5 0q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8t-.8 1.95q0 1.15.8 1.95t1.95.8Zm-16.25 3h18q1.7 0 2.85-1.25Q37 32.75 37 31v-7.25H11V31q0 1.75 1.15 3T15 35.25ZM24 10H36.6 11.55 24"/></svg>
-      <span>München Hbf</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-  </div>
-
-
-  <!-- Footer -->
-  <footer>
-      <span>{{ title }} app is running!</span>
-      &nbsp;App version:&nbsp;
-      <a href="https://github.com/angular/angular" target="_blank" rel="noopener"> 14.22.7.1
-      </a>
-  </footer>
-
-  <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
-    <title>Bahn Icon Background</title>
-    <path id="Path_39" data-name="Path 39" d="M8 31V12q0-2.05.95-3.575.95-1.525 2.925-2.5 1.975-.975 5-1.45T24 4q4.3 0 7.325.45 3.025.45 4.95 1.425Q38.2 6.85 39.1 8.35q.9 1.5.9 3.65v19q0 2.95-2.025 4.975Q35.95 38 33 38l3 3v1h-3.5l-4-4h-9l-4 4H12v-1l3-3q-2.95 0-4.975-2.025Q8 33.95 8 31ZM24 7q-6 0-8.65.775-2.65.775-3.8 2.225H36.6q-.9-1.35-3.825-2.175Q29.85 7 24 7ZM11 20.75h11.7V13H11Zm22 3H11h26-4Zm-7.3-3H37V13H25.7Zm-8.95 11.5q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8T14 29.5q0 1.15.8 1.95t1.95.8Zm14.5 0q1.15 0 1.95-.8t.8-1.95q0-1.15-.8-1.95t-1.95-.8q-1.15 0-1.95.8t-.8 1.95q0 1.15.8 1.95t1.95.8Zm-16.25 3h18q1.7 0 2.85-1.25Q37 32.75 37 31v-7.25H11V31q0 1.75 1.15 3T15 35.25ZM24 10H36.6 11.55 24" transform="translate(142.69 -634.312)" fill="#eee"/>
-  </svg>
-
-</div>
-
+<br>
+<br>
+<br>
+<p>Bahn22 - Ang14</p>
